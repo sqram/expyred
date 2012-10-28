@@ -1,0 +1,258 @@
+body {
+	text-align: center;
+	color: #333;
+	background: #f5f5f5;
+	
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/*	Layout
+----------------------------*/
+.container {
+	width: 970px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+.content {
+	border: 20px solid #444;
+	padding: 25px;
+	overflow: auto;
+	background: #fff;
+	position: relative;
+	letter-spacing: 1px!important;
+}
+
+
+/* Inner divs
+----------------------------*/
+.test-string {
+	float: left;
+	width: 46%;
+	margin-top: 20px;
+}
+
+#result {
+	float: right;
+	width: 45%;
+	margin-top: 20px;
+	min-height: 113px;
+	padding: 10px;
+	text-align: center;
+}
+
+.result {
+	text-align: left!important;
+	min-height: 130px!important;
+	width: 47%;
+	border: 1px solid #eee;
+}
+
+.welcome {
+	border: 10px solid #81b872;
+	background: #d5ffdb;
+}
+
+.no-matches {
+	line-height: 113px;
+	border: 10px solid #de7676;
+	background:  #f9dddd;	
+}
+
+.warning {
+	line-height: 113px;
+	background: #FFFCDF;
+	border: 10px solid #FFFABF;
+}
+
+.extra {
+	/* extra links like copy to clipboard */
+	clear: both;
+	margin-top: 20px;
+	text-align: center;
+}
+
+.loading {
+	width: 16px;
+	height: 11px;
+	position: absolute;
+	display: none;
+	bottom: 20px;
+	right: 25px;
+	background: url('../../images/loading.gif') no-repeat;
+}
+
+.table-wrapper {
+	border: 1px solid #444;
+}
+
+.powered {
+	margin: 20px 0;
+	font-size: 10px;
+	text-align: center;
+}
+
+.response {
+	/* ajax response when links are clicked */
+	padding: 3px 0;
+	border-width: 1px;
+	width: 40%;
+	margin: 0 auto;
+	text-align: center;
+	margin: 20px auto;
+	display: block;
+	font-size: 10px;
+}
+
+
+/* Lists & Links
+----------------------------*/
+a {
+	background: #3B5F47;
+	color: #fff;
+	text-decoration: none;
+	padding:  0 3px
+}
+
+a:hover {
+	background: #577F64;
+}
+
+
+.extra a {
+	font-size: 10px;
+	padding: 3px 10px;
+	background: #f5f5f5;
+	color: #444;
+}
+
+.extra a:hover {
+	background: #444;
+	color: #f5f5f5;
+	
+}
+
+.powered a {
+	color: #444;
+	padding: 0 2px;
+	border: 1px solid green;
+	background: #D5FFDB;
+}
+
+.powered a:hover {
+	background: #444;
+	color: #fff;
+	border-color: #000;
+
+}
+
+
+/* Form
+----------------------------*/
+textarea {
+	width: 100%;
+	min-height: 130px;
+	font-family: inherit;
+}
+
+label {
+	display: block;
+	float: left;
+}
+
+textarea, input.regex {
+	border: 1px solid #444;
+	padding: 10px;
+}
+
+
+/* Pure HTML
+----------------------------*/
+h1 {
+	font-size: 60px;
+	text-align: center;
+	font-weight: bold;
+	color: #7DAF57;
+	margin-bottom: 5px;
+}
+
+h2 {
+	color: #A7C1DF;
+	text-align: center;
+	margin-bottom: 5px;
+}
+
+table {
+	color: #fff;
+	border: 10px solid #fff;
+	background: #444;
+}
+
+td {
+	vertical-align: top;
+	text-align: left;
+	font-size: 13px;
+}
+
+hr {
+	color: #000;
+	margin: 0;
+}
+
+fieldset {
+	background: #222;
+	border: 1px solid #999;
+	margin: 0;
+}
+
+
+#regex {
+	width: 748px;
+}
+
+/*  HTML
+----------------------------*/
+table.flags {
+	border: none;
+}
+
+table.flags th {
+	text-align: center;
+	background: #000;
+
+}
+
+
+
+
+
+/* Spans
+----------------------------*/
+span.slash {
+	font-size: 15px;
+	margin: 0 6px;	
+}
+
+.match {
+	color: #fff;
+	background: #444;
+}
+
+.tab {
+	padding: 0 15px;
+	
+	color: #555;
+}
+
+
+/* Misc
+----------------------------*/
+.left {float: left; }
+.bold { font-weight: bold; font-family:courier;}
+.right {float: right; }
+.clear {clear:both}
+.hidden { display: none }
+a { cursor: pointer }
+.align-center { text-align: center; }
+

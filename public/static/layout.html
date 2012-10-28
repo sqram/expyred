@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<head>
+	
+	<meta charset="UTF-8">	
+	<title>${title}</title>
+	
+	<style>
+		@import url('/static/includes/styles/default.css');
+	</style>
+	
+	<script type="text/javascript" src='/static/includes/javascript/jquery/jquery.js'></script>
+	<script type="text/javascript" src='/static/includes/javascript/jquery/jquery.tabby.js'></script>
+	<script type="text/javascript" src='/static/includes/javascript/jquery/jquery.livequery.js'></script>
+	<script type="text/javascript" src='/static/includes/javascript/jquery/jquery.autogrow.js'></script>
+	<script type="text/javascript" src='/static/includes/javascript/jquery/copy/jquery.copy.js'></script>
+	<script type="text/javascript" src='/static/includes/javascript/jquery/jquery.qtip.js'></script>
+	<script type="text/javascript" src='/static/includes/javascript/jquery/jquery.expyred.js'></script>	
+</head>
+
+<body>
+	
+<div class="container">
+	
+	<h1>${site_name} </h1>
+	
+	<div class="content">
+		<span class="slash" style="margin-left:-11px">/</span>
+		<input type="text" size="83" id="regex" placeholder="your regular expression.."  class="regex" value="${regex}" />
+		<span class="slash">/</span>
+		<input type="text" size="4" id="options" class="regex" value="${options}"  />
+		
+		<div class="test-string">
+			<textarea id="test_string" placeholder="Your test string...">${string}</textarea>
+		</div>
+
+		<div id="result" class="welcome">
+			A Python-based regular expression editor<br /><br />
+			It was inspired & influenced by
+			<a href="http://rubular.com" target="_blank">rubular</a>
+			<br /><br />I just wanted to make one in my favorite language.
+		</div> <!-- /result -->
+	
+		<div class="clear"></div>
+	
+		<div class="welcome hidden" id='link_response'></div>
+	
+		<div class='extra'>
+			<a id="permalink clipboard">permalink</a>
+		</div>		
+		
+		<div class="loading"></div>
+		
+	</div> <!-- /content -->
+	
+	
+	
+	
+		
+	<h2>Quick reference</h2>
+	<div class="table-wrapper">
+		<table border='0' width="100%" cellspacing="10" align="center">
+			<tr>
+				<td>[abc]</td>
+				<td>A single character: a, b or c</td>
+				<td>.</td>
+				<td>Any single character</td>
+				<td>(...)</td>
+				<td>Capture everything enclosed</td>		
+			</tr>
+			<tr>
+				<td>[^abc]</td>
+				<td>Any single character but a, b, or c</td>
+				<td>\s</td>
+				<td>Any whitespace character</td>
+				<td>(a|b)</td>
+				<td>a or b</td>		
+			</tr>
+			<tr>
+				<td>[a-z]</td>
+				<td>Any single character in the range a-z</td>
+				<td>\S</td>
+				<td>Any non-whitespace character</td>
+				<td>a?</td>
+				<td>Zero or one of a</td>		
+			</tr>
+			<tr>
+				<td>[a-zA-Z]</td>
+				<td>Any single character in the range a-z or A-Z</td>
+				<td>\d</td>
+				<td>Any digit</td>
+				<td>a*</td>
+				<td>Zero or more of a</td>		
+			</tr>
+			<tr>
+				<td>^</td>
+				<td>Start of line</td>
+				<td>\D</td>
+				<td>Any non-digit</td>
+				<td>a+</td>
+				<td>One or more of a</td>		
+			</tr>
+			<tr>
+				<td>$</td>
+				<td>End of line</td>
+				<td>\w</td>
+				<td>Any word character (letter, number, underscore)</td>
+				<td>a{3}</td>
+				<td>Exactly 3 of a</td>		
+			</tr>
+			<tr>
+				<td>\A</td>
+				<td>Start of string</td>
+				<td>\W</td>
+				<td>Any non-word character</td>
+				<td>a{3,}</td>
+				<td>3 or more of a</td>		
+			</tr>
+			<tr>
+				<td>\z</td>
+				<td>End of string</td>
+				<td>\b</td>
+				<td>Any word boundary character</td>
+				<td>a{3,6}</td>
+				<td>Between 3 and 6 of a</td>		
+			</tr>
+		
+			<tr>
+				<td colspan="6"><hr /></td>
+			</tr>
+			
+			<tr>
+				<td colspan="6">
+					<fieldset><legend>Options</legend>
+					<table class="flags" border='0' width="100%" cellspacing='1'>
+						<tr>
+							<th title="Perform case-insensitive matching">i</th>
+							<th title="Make \w, \W, \b, \B, \s and \S dependent on the current locale.">l</th>
+							<th title="When specified, the pattern character '^' matches at the beginning of the 
+								string and at the beginning of each line (immediately following each newline); and the 
+								pattern character '$' matches at the end of the string and at the end of each line 
+								(immediately preceding each newline). By default, '^' matches only at the beginning of 
+								the string, and '$' only at the end of the string and immediately before the newline 
+								(if any) at the end of the string.">m
+							</th>
+							<th title="Make the '.' special character match any character at all, including a newline;
+								without this flag, '.' will match anything except a newline.">s
+							</th>
+							<th title="Make \w, \W, \b, \B, \d, \D, \s and \S dependent on the Unicode character 
+								properties database.">u
+							</th>
+							<th title="Whitespace within the pattern is ignored, except when in a character class or 
+								preceded by an unescaped backslash, and, when a line contains a '#' neither in a 
+								character class or preceded by an unescaped backslash, all characters from the 
+								leftmost such '#' through the end of the line are ignored.">x
+							</th>
+						</tr>
+					</table>
+					</fieldset>
+				</td>
+			</tr>
+		</table>
+		
+	</div>
+	
+	
+	
+	
+	<div class='powered'>
+		<a href="http://webpy.org" target="_blank">web.py</a> &
+		<a href="http://www.makotemplates.org/" target="_blank">mako</a>
+	
+</div> <!-- /container -->
+
+
+
+
+
+</body>
+</html>
+
+
