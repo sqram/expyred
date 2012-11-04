@@ -1,11 +1,3 @@
-"""
-create database expyred;
-use expyred;
-create table permalinks ( linkID int not null auto_increment,
-primary key (linkID), regex text(200), string text(300),
-options varchar(20), date datetime);
-
-"""
 import web
 import re
 from mako.template import Template
